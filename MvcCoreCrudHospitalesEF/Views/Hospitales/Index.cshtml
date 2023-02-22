@@ -1,0 +1,38 @@
+﻿@model List<Hospital>
+
+<h1>
+    Hospitales CRUD EF
+</h1>
+
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>COD HOSPITAL</th>
+            <th>NOMBRE</th>
+            <th>DIRECCION</th>
+            <th>TELEFENO</th>
+            <th>NUM CAMA</th>
+            <th>DETAILS</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (Hospital hosp in Model)
+        {
+            <tr>
+                <td>@hosp.IdHospital</td>
+                <td>@hosp.Nombre</td>
+                <td>@hosp.Direccion</td>
+                <td>@hosp.Telefono</td>
+                <td>@hosp.numcama</td>
+                <td>
+                    <a asp-controller="Hospitales"
+                   asp-action="Details"
+                   asp-route-idhospital="@hosp.IdHospital"
+                   class="btn btn-outline-info">
+                        Details
+                    </a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
